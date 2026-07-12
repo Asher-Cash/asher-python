@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "asher-payments"
+version = "0.1.0"
+description = "Official Python SDK for Asher, a crypto-to-fiat payment processor for African businesses."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "Asher", email = "developers@asher.cash" },
+]
+keywords = ["asher", "payments", "crypto", "stablecoin", "fiat", "api", "sdk"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only",
+    "Typing :: Typed",
+]
+dependencies = [
+    "requests>=2.25,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.8",
+    "pytest>=7.4",
+    "black>=24.1",
+    "types-requests",
+]
+
+[project.urls]
+Homepage = "https://asher.cash"
+Documentation = "https://docs.asher.cash"
+Repository = "https://github.com/asher-cash/asher-python"
+"Bug Tracker" = "https://github.com/asher-cash/asher-python/issues"
+
+[tool.setuptools.packages.find]
+include = ["asher", "asher.*"]
+
+[tool.setuptools.package-data]
+asher = ["py.typed"]
+
+# Note: recent mypy releases dropped the ability to *check against* older
+# syntax targets, even though this package still supports and declares
+# requires-python = ">=3.8" above. 3.10 is used here purely as the mypy
+# analysis target (the lowest this installed mypy accepts); no 3.9+/3.10+
+# -only syntax is actually used in the code.
+[tool.mypy]
+python_version = "3.10"
+strict = true
+packages = ["asher"]
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
