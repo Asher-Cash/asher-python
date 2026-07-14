@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "asher-payments"
+name = "asher"
 version = "0.1.0"
 description = "Official Python SDK for Asher, a crypto-to-fiat payment processor for African businesses."
 readme = "README.md"

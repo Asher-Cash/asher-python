@@ -12,11 +12,8 @@ signature-verification helper.
 ## Installation
 
 ```bash
-pip install asher-payments
+pip install asher
 ```
-
-The importable package is `asher` (the PyPI distribution is named `asher-payments`
-to avoid a name collision):
 
 ```python
 import asher
